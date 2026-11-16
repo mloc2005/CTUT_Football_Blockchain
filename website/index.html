@@ -1,0 +1,85 @@
+
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#14365a" />
+  <title>Kết quả thi đấu | CTUT Football Blockchain</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.17.0/dist/ethers.umd.min.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body id="top">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="CTUT Football Chain - Trang chủ">
+        <img class="brand-logo" src="images/logo-ctut.png" alt="Logo CLB Bóng đá CTUT" />
+        <span class="brand-text">
+          <strong>CTUT Football Blockchain</strong>
+          <small>CLB Bóng đá CTUT</small>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Điều hướng chính">
+        <a href="index.html#ket-qua" class="active">Kết quả</a>
+        <a href="thong-ke.html">Thống kê</a>
+        <a href="admin.html">Quản lý</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container main-content">
+    <section class="stats" id="thong-ke" aria-label="Thống kê tổng quan">
+      <article class="stat-card">
+        <span class="stat-icon stat-icon-orange" aria-hidden="true">⚽</span>
+        <div>
+          <p>Tổng trận đấu</p>
+          <strong id="totalMatches">0</strong>
+        </div>
+      </article>
+      <article class="stat-card">
+        <span class="stat-icon stat-icon-green" aria-hidden="true">✓</span>
+        <div>
+          <p>Đã chốt kết quả</p>
+          <strong id="totalFinalized">0</strong>
+        </div>
+      </article>
+    </section>
+
+    <section class="results-section" id="ket-qua" aria-labelledby="results-title">
+      <div class="section-heading">
+        <h1 class="section-title" id="results-title">DANH SÁCH TRẬN ĐẤU</h1>
+        <span class="demo-tag" id="dataSource">Đang tải dữ liệu...</span>
+      </div>
+
+      <div class="match-filter-toolbar" role="search" aria-label="Tìm kiếm và lọc trận đấu">
+        <div class="match-filter-control">
+          <label for="matchSearch">Tìm kiếm trận đấu</label>
+          <input id="matchSearch" type="search" placeholder="Tên đội hoặc mã trận (#1)" autocomplete="off" />
+        </div>
+        <div class="match-filter-control">
+          <label for="matchStatusFilter">Trạng thái</label>
+          <select id="matchStatusFilter">
+            <option value="all">Tất cả trận đấu</option>
+            <option value="finalized">Đã chốt</option>
+            <option value="pending">Chưa chốt</option>
+          </select>
+        </div>
+        <button id="clearMatchFilters" class="clear-match-filters" type="button">Xóa lọc</button>
+      </div>
+      <p class="match-filter-summary" id="filterSummary" role="status" aria-live="polite"></p>
+      <div class="match-list" id="matchList" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="images/logo-ctut.png" alt="" aria-hidden="true" />
+        <span>CTUT Football Blockchain</span>
+      </div>
+      <span>© 2026 CLB Bóng đá CTUT</span>
+    </div>
+  </footer>
+</body>
+</html>

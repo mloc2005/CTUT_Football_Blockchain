@@ -1,0 +1,288 @@
+
+/* CHI TIET TRAN DAU - PHIEN BAN V3 */
+[hidden] { display: none !important; }
+.detail-page {
+  max-width: 1100px;
+  padding-top: 28px;
+  padding-bottom: 45px;
+  font-family: inherit;
+}
+.detail-page h1, .detail-page h2, .detail-page p,
+.detail-page span, .detail-page a, .detail-page strong { font-family: inherit; }
+
+/* NUT QUAY LAI & TIEU DE */
+.detail-back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin: 0 0 25px;
+  padding: 11px 18px;
+  background: #fff0e5;
+  border: 1px solid #f4c9a9;
+  border-radius: 10px;
+  color: #a9480d;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+.detail-back:hover { background: #ffdfc6; color: #963b08; text-decoration: none; }
+.detail-back:focus-visible { outline: 3px solid #f47720; outline-offset: 3px; }
+.detail-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.detail-title {
+  margin: 0;
+  padding-left: 15px;
+  border-left: 4px solid #f47720;
+  color: #102e4e;
+  font-size: 24px;
+  font-weight: 750;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+.detail-feedback { color: var(--muted); font-size: 14px; }
+.detail-feedback.error {
+  color: #b42318;
+  background: #fff1ee;
+  padding: 14px;
+  border: 1px solid #f5c6c1;
+  border-radius: 12px;
+}
+
+/* KHUNG CHUNG & BANG TY SO */
+.detail-card, .detail-panel {
+  background: #ffffff;
+  border: 1px solid #e0e8f1;
+  border-radius: 17px;
+  box-shadow: 0 12px 30px rgba(16, 46, 78, 0.055);
+}
+.detail-card { overflow: hidden; margin-bottom: 18px; }
+.detail-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid var(--border);
+  padding: 16px 22px;
+  font-size: 14px;
+  font-weight: 700;
+}
+.detail-scoreboard {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 20px;
+  padding: 35px 24px;
+}
+.detail-team { min-width: 0; text-align: center; }
+.detail-team h2 {
+  margin: 7px 0 0;
+  color: var(--navy-dark);
+  font-size: 21px;
+  font-weight: 750;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.detail-score {
+  color: var(--navy-dark);
+  white-space: nowrap;
+  font-size: 42px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+.detail-dash { color: #b4c2d0; margin: 0 13px; }
+
+/* THONG TIN CHUNG & THONG KE THE PHAT */
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 18px;
+}
+.detail-panel { padding: 24px; }
+.detail-panel h2 {
+  margin: 0 0 20px;
+  color: #102e4e;
+  font-size: 18px;
+  font-weight: 750;
+  line-height: 1.4;
+}
+.detail-facts { margin: 0; }
+.detail-facts > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  border-bottom: 1px solid var(--border);
+  padding: 12px 0;
+}
+.detail-facts > div:last-child { border-bottom: 0; }
+.detail-facts dt { color: #7187a2; font-size: 14px; }
+.detail-facts dd {
+  margin: 0;
+  color: #102e4e;
+  text-align: right;
+  font-size: 14px;
+  font-weight: 700;
+}
+.detail-facts a { color: #bb5318; text-decoration: none; }
+.detail-facts a:hover { text-decoration: underline; }
+.v3-info-value { overflow-wrap: anywhere; }
+.detail-cards-team + .detail-cards-team {
+  border-top: 1px solid var(--border);
+  padding-top: 15px;
+  margin-top: 15px;
+}
+.detail-cards-team strong {
+  display: block;
+  margin-bottom: 12px;
+  overflow-wrap: anywhere;
+  color: #102e4e;
+  font-size: 14px;
+  font-weight: 700;
+}
+.detail-cards-counts { display: flex; flex-wrap: wrap; gap: 18px; font-size: 14px; }
+.detail-cards-counts span { display: inline-flex; align-items: center; gap: 5px; }
+.detail-card-icon { display: inline-block; height: 18px; width: 12px; border-radius: 2px; }
+.detail-card-icon.yellow { background: #efbc2e; }
+.detail-card-icon.red { background: #db4560; }
+
+/* CAU THU GHI BAN & CHI TIET THE PHAT */
+.v3-event-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+}
+.v3-event-panel h2 { margin: 0 0 14px; font-size: 18px; color: #102e4e; }
+.v3-event-list { display: grid; gap: 10px; }
+.v3-event-row {
+  background: #f7f9fc;
+  border: 1px solid #e1e8f0;
+  border-radius: 11px;
+  padding: 14px 15px;
+}
+.v3-event-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+.v3-event-person { color: #102e4e; font-size: 14px; font-weight: 700; overflow-wrap: anywhere; }
+.v3-event-minute { color: #102e4e; font-weight: 700; white-space: nowrap; }
+.v3-event-sub { margin: 6px 0 0; color: #687d94; font-size: 13px; }
+.v3-empty { padding: 12px 0; font-size: 14px; color: #687d94; }
+.v3-pill { display: inline-block; padding: 2px 9px; border-radius: 7px; font-size: 12px; font-weight: 700; }
+.v3-yellow { color: #885f00; background: #fff1c2; }
+.v3-red { color: #9f2638; background: #ffe0e5; }
+
+/* LICH SU BLOCKCHAIN THU GON */
+.detail-history { padding: 0; overflow: hidden; }
+.v3-history-panel { margin-top: 18px; }
+.detail-history-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 23px 25px;
+  list-style: none;
+  cursor: pointer;
+}
+.detail-history-summary::-webkit-details-marker { display: none; }
+.detail-history-summary::marker { content: ""; }
+.detail-history-title { font-size: 18px; font-weight: 750; color: #102e4e; }
+.detail-history-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-shrink: 0;
+  white-space: nowrap;
+  color: #a9480d;
+  font-size: 13px;
+  font-weight: 700;
+}
+.detail-history-toggle .history-show,
+.detail-history-toggle .history-hide { line-height: 1.4; }
+.detail-history-toggle .history-hide { display: none; }
+.detail-history[open] .history-show { display: none; }
+.detail-history[open] .history-hide { display: inline; }
+.detail-history-toggle .history-chevron {
+  display: block;
+  width: 8px;
+  height: 8px;
+  margin: -4px 2px 0 0;
+  border: none;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  border-radius: 0;
+  font-size: 0;
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+}
+.detail-history[open] .detail-history-toggle .history-chevron {
+  transform: rotate(225deg);
+  margin-top: 4px;
+}
+.detail-history-body { padding: 0 25px 25px; }
+.detail-history-summary:focus-visible { outline: 2px solid #f47720; outline-offset: -4px; }
+.v3-history-action { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.v3-retry {
+  border: 1px solid #ffd0b5;
+  color: #a9480d;
+  background: #fff4ed;
+  padding: 8px 13px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+#v3HistoryFeedback:not(:empty) { margin: 0 0 12px; color: #687d94; font-size: 13px; }
+#v3HistoryFeedback.error { color: #b42336; }
+.v3-history-item {
+  padding: 15px;
+  margin-bottom: 10px;
+  border: 1px solid #e1e8f0;
+  background: #f7f9fc;
+  border-radius: 11px;
+}
+.v3-history-name { margin: 0; color: #102e4e; font-size: 14px; font-weight: 700; }
+.v3-history-desc { margin: 5px 0 8px; font-size: 13px; color: #183451; }
+.v3-history-meta { display: flex; flex-wrap: wrap; gap: 4px 18px; color: #687d94; font-size: 12px; }
+.v3-history-link {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 7px 11px;
+  border: 1px solid #ffd0b5;
+  border-radius: 8px;
+  background: #fff4ed;
+  color: #a9480d;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+}
+.v3-history-link:hover { background: #ffe9da; }
+
+/* HIEN THI TREN DIEN THOAI */
+@media (max-width: 720px) {
+  .detail-page { padding-top: 20px; }
+  .detail-title { font-size: 21px; }
+  .detail-grid, .v3-event-grid { grid-template-columns: 1fr; }
+  .detail-scoreboard { gap: 8px; padding: 25px 12px; }
+  .detail-team h2 { font-size: 16px; }
+  .detail-score { font-size: 29px; }
+  .detail-dash { margin: 0 5px; }
+  .detail-panel { padding: 18px; }
+  .detail-history { padding: 0; }
+  .detail-history-summary { padding: 18px; }
+  .detail-history-body { padding: 0 18px 18px; }
+  .detail-history-title, .v3-event-panel h2 { font-size: 16px; }
+}

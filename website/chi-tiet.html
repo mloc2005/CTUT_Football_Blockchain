@@ -1,0 +1,145 @@
+
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#102c49" />
+  <title>Chi tiết trận đấu | CTUT Football Blockchain</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="chi-tiet.css" />
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.17.0/dist/ethers.umd.min.js" defer></script>
+  <script src="blockchain-v3.js" defer></script>
+  <script src="chi-tiet.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html#ket-qua">
+        <img class="brand-logo" src="images/logo-ctut.png" alt="Logo CLB Bóng đá CTUT" />
+        <span class="brand-text">
+          <strong>CTUT Football Blockchain</strong>
+          <small>CLB Bóng đá CTUT</small>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Điều hướng chính">
+        <a href="index.html#ket-qua" class="active">Kết quả</a>
+        <a href="thong-ke.html">Thống kê</a>
+        <a href="admin.html">Quản lý</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container main-content detail-page">
+    <a class="detail-back" href="index.html#ket-qua">Quay lại danh sách</a>
+    <div class="detail-heading">
+      <h1 class="detail-title" id="detailTitle">Chi tiết trận đấu</h1>
+      <span class="demo-tag" id="detailSource">Đang tải dữ liệu...</span>
+    </div>
+    <p id="detailFeedback" class="detail-feedback" role="status" aria-live="polite">
+      Đang đọc dữ liệu V3 từ Ethereum Sepolia...
+    </p>
+
+    <section id="detailContent" hidden>
+      <!-- TY SO -->
+      <article class="detail-card">
+        <div class="detail-card-top">
+          <span id="detailMatchId">TRẬN ĐẤU</span>
+          <span id="detailStatus" class="status-badge"></span>
+        </div>
+        <div class="detail-scoreboard">
+          <div class="detail-team">
+            <span class="team-label">ĐỘI A</span>
+            <h2 id="detailTeamA">—</h2>
+          </div>
+          <div class="detail-score" aria-label="Tỷ số">
+            <span id="detailScoreA">0</span>
+            <span class="detail-dash">–</span>
+            <span id="detailScoreB">0</span>
+          </div>
+          <div class="detail-team">
+            <span class="team-label">ĐỘI B</span>
+            <h2 id="detailTeamB">—</h2>
+          </div>
+        </div>
+      </article>
+
+      <!-- THONG TIN TRAN DAU & TONG HOP THE PHAT -->
+      <div class="detail-grid">
+        <section class="detail-panel">
+          <h2>THÔNG TIN TRẬN ĐẤU</h2>
+          <dl class="detail-facts">
+            <div><dt>Mã trận đấu</dt><dd id="detailIdValue">—</dd></div>
+            <div><dt>Ngày giờ thi đấu</dt><dd class="v3-info-value" id="detailStartTime">—</dd></div>
+            <div><dt>Sân thi đấu</dt><dd class="v3-info-value" id="detailVenue">—</dd></div>
+            <div><dt>Trạng thái</dt><dd id="detailStateText">—</dd></div>
+            <div><dt>Mạng Blockchain</dt><dd>Ethereum Sepolia</dd></div>
+            <div>
+              <dt>Smart Contract V3</dt>
+              <dd><a id="contractLink" target="_blank" rel="noopener noreferrer">Xem trên Etherscan</a></dd>
+            </div>
+          </dl>
+        </section>
+        <section class="detail-panel">
+          <h2>THỐNG KÊ THẺ PHẠT</h2>
+          <div class="detail-cards-team">
+            <strong id="cardsTeamA">Đội A</strong>
+            <div class="detail-cards-counts">
+              <span><i class="detail-card-icon yellow"></i><b id="detailYellowA">0</b> thẻ vàng</span>
+              <span><i class="detail-card-icon red"></i><b id="detailRedA">0</b> thẻ đỏ</span>
+            </div>
+          </div>
+          <div class="detail-cards-team">
+            <strong id="cardsTeamB">Đội B</strong>
+            <div class="detail-cards-counts">
+              <span><i class="detail-card-icon yellow"></i><b id="detailYellowB">0</b> thẻ vàng</span>
+              <span><i class="detail-card-icon red"></i><b id="detailRedB">0</b> thẻ đỏ</span>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- DANH SACH BAN THANG & THE PHAT CON HIEU LUC -->
+      <div class="v3-event-grid">
+        <section class="detail-panel v3-event-panel">
+          <h2>CẦU THỦ GHI BÀN</h2>
+          <div id="detailGoals" class="v3-event-list"></div>
+        </section>
+        <section class="detail-panel v3-event-panel">
+          <h2>CHI TIẾT THẺ PHẠT</h2>
+          <div id="detailCards" class="v3-event-list"></div>
+        </section>
+      </div>
+
+      <!-- LICH SU BLOCKCHAIN: MAC DINH DONG -->
+      <details class="detail-panel detail-history v3-history-panel" id="historyDetails">
+        <summary class="detail-history-summary">
+          <span class="detail-history-title">Lịch sử Blockchain</span>
+          <span class="detail-history-toggle" aria-hidden="true">
+            <span class="history-show">Xem chi tiết</span>
+            <span class="history-hide">Thu gọn</span>
+            <span class="history-chevron"></span>
+          </span>
+        </summary>
+        <div class="detail-history-body">
+          <div class="v3-history-action">
+            <button type="button" id="retryHistory" class="v3-retry" hidden>Tải lại lịch sử</button>
+            <p id="v3HistoryFeedback" role="status" aria-live="polite"></p>
+          </div>
+          <div id="historyList"></div>
+        </div>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="images/logo-ctut.png" alt="" aria-hidden="true" />
+        <span>CTUT Football Blockchain</span>
+      </div>
+      <span>© 2026 CLB Bóng đá CTUT</span>
+    </div>
+  </footer>
+</body>
+</html>
