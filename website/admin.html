@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản lý | CTUT Football Blockchain</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="admin.css" />
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/ethers@6.17.0/dist/ethers.umd.min.js"
+      defer
+    ></script>
+    <script src="blockchain-v3.js" defer></script>
+    <script src="admin-v3.js" defer></script>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="brand">
+          <img
+            src="images/logo-ctut.png"
+            alt="Logo CLB Bóng đá CTUT"
+            class="brand-logo"
+          />
+          <span class="brand-text">
+            <strong>CTUT Football Blockchain</strong>
+            <small>CLB Bóng đá CTUT</small>
+          </span>
+        </a>
+
+        <nav class="site-nav">
+          <a href="index.html#ket-qua">Kết quả</a>
+          <a href="thong-ke.html">Thống kê</a>
+          <a href="admin.html" class="active">Quản lý</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container admin-main">
+      <div class="admin-title-row">
+        <h1>QUẢN LÝ</h1>
+      </div>
+
+      <!-- KET NOI VI -->
+      <section class="panel wallet-panel">
+        <div class="panel-heading">
+          <div><h2>Kết nối ví MetaMask</h2></div>
+          <span class="status-chip" id="walletStatus">Chưa kết nối</span>
+        </div>
+
+        <div class="wallet-body">
+          <div class="wallet-details">
+            <div>
+              <span>Địa chỉ ví</span>
+              <strong id="walletAddress">Chưa có</strong>
+            </div>
+            <div>
+              <span>Mạng Blockchain</span>
+              <strong id="networkName">Chưa xác định</strong>
+            </div>
+            <div>
+              <span>Quyền quản lý</span>
+              <strong id="adminPermission">Chưa xác minh</strong>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            class="primary-btn"
+            id="connectWallet"
+            aria-describedby="walletFeedback"
+          >
+            Kết nối MetaMask
+          </button>
+        </div>
+
+        <p id="walletFeedback" class="inline-feedback" role="status"></p>
+        <p id="v3ContractCheck" class="inline-feedback" role="status">
+          Đang kiểm tra kết nối Smart Contract V3...
+        </p>
+      </section>
+
+      <div class="admin-grid">
+        <!-- DANH SACH TRAN DAU -->
+        <section class="panel admin-matches">
+          <div class="admin-match-heading">
+            <div><h2>DANH SÁCH TRẬN ĐẤU</h2></div>
+            <span class="match-count" id="adminMatchCount">0 trận</span>
+          </div>
+
+          <div class="admin-table-scroll">
+            <table class="admin-match-table">
+              <thead>
+                <tr>
+                  <th>Mã trận</th>
+                  <th>Đội A</th>
+                  <th>Đội B</th>
+                  <th>Tỷ số</th>
+                  <th>Thẻ phạt</th>
+                  <th>Trạng thái</th>
+                  <th>Thao tác</th>
+                </tr>
+              </thead>
+              <tbody id="adminMatchRows">
+                <tr>
+                  <td colspan="7" class="admin-empty">
+                    Chưa tải dữ liệu từ Blockchain.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p
+            class="selection-feedback"
+            id="matchSelectionFeedback"
+            role="status"
+          ></p>
+        </section>
+
+        <!-- 01. TAO TRAN DAU -->
+        <section class="panel">
+          <div class="panel-heading">
+            <div><h2>Tạo trận đấu</h2></div>
+            <span class="step-number">01</span>
+          </div>
+
+          <form id="createMatchForm" class="admin-form">
+            <div class="form-grid">
+              <label>
+                Tên đội A
+                <input
+                  type="text"
+                  name="teamA"
+                  placeholder="Nhập tên đội A"
+                  maxlength="100"
+                  required
+                />
+              </label>
+
+              <label>
+                Tên đội B
+                <input
+                  type="text"
+                  name="teamB"
+                  placeholder="Nhập tên đội B"
+                  maxlength="100"
+                  required
+                />
+              </label>
+            </div>
+
+            <div class="form-grid">
+              <label>
+                Ngày giờ thi đấu
+                <input type="datetime-local" name="startTime" required />
+              </label>
+
+              <label>
+                Sân thi đấu
+                <input
+                  type="text"
+                  name="venue"
+                  placeholder="Ví dụ: Sân bóng đá CTUT"
+                  maxlength="150"
+                  required
+                />
+              </label>
+            </div>
+
+            <button type="submit" class="primary-btn" disabled>
+              Tạo trận đấu
+            </button>
+          </form>
+        </section>
+
+        <!-- 02. GHI NHAN BAN THANG -->
+        <section class="panel">
+          <div class="panel-heading">
+            <h2>Ghi nhận bàn thắng</h2>
+            <span class="step-number">02</span>
+          </div>
+
+          <form id="recordGoalForm" class="admin-form">
+            <label>
+              Mã trận đấu
+              <input type="number" name="matchId" min="1" step="1" required />
+            </label>
+
+            <label>
+              Cầu thủ ghi bàn
+              <input
+                type="text"
+                name="playerName"
+                maxlength="100"
+                placeholder="Nhập tên cầu thủ"
+                required
+              />
+            </label>
+
+            <div class="form-grid">
+              <label>
+                Đội bóng
+                <select name="team" required>
+                  <option value="1">Đội A</option>
+                  <option value="2">Đội B</option>
+                </select>
+              </label>
+
+              <label>
+                Phút ghi bàn
+                <input
+                  type="number"
+                  name="minute"
+                  min="1"
+                  max="180"
+                  step="1"
+                  required
+                />
+              </label>
+            </div>
+
+            <button type="submit" class="primary-btn" disabled>
+              Ghi nhận bàn thắng
+            </button>
+          </form>
+        </section>
+
+        <!-- 03. GHI NHAN THE PHAT -->
+        <section class="panel">
+          <div class="panel-heading">
+            <h2>Ghi nhận thẻ phạt</h2>
+            <span class="step-number">03</span>
+          </div>
+
+          <form id="recordCardForm" class="admin-form">
+            <label>
+              Mã trận đấu
+              <input type="number" name="matchId" min="1" step="1" required />
+            </label>
+
+            <label>
+              Cầu thủ nhận thẻ
+              <input
+                type="text"
+                name="playerName"
+                maxlength="100"
+                placeholder="Nhập tên cầu thủ"
+                required
+              />
+            </label>
+
+            <div class="form-grid">
+              <label>
+                Đội bóng
+                <select name="team" required>
+                  <option value="1">Đội A</option>
+                  <option value="2">Đội B</option>
+                </select>
+              </label>
+
+              <label>
+                Loại thẻ
+                <select name="cardType" required>
+                  <option value="1">Thẻ vàng</option>
+                  <option value="2">Thẻ đỏ</option>
+                </select>
+              </label>
+            </div>
+
+            <label>
+              Phút nhận thẻ
+              <input
+                type="number"
+                name="minute"
+                min="1"
+                max="180"
+                step="1"
+                required
+              />
+            </label>
+
+            <button type="submit" class="primary-btn" disabled>
+              Ghi nhận thẻ phạt
+            </button>
+          </form>
+        </section>
+
+        <!-- 04. CHOT KET QUA -->
+        <section class="panel">
+          <div class="panel-heading">
+            <div><h2>Chốt kết quả</h2></div>
+            <span class="step-number">04</span>
+          </div>
+
+          <form id="finalizeMatchForm" class="admin-form">
+            <label>
+              Mã trận đấu
+              <input
+                type="number"
+                name="matchId"
+                min="1"
+                step="1"
+                placeholder="Ví dụ: 1"
+                required
+              />
+            </label>
+
+            <p class="important-note">
+              Sau khi chốt, tỷ số và thẻ phạt không thể chỉnh sửa.
+            </p>
+
+            <button type="submit" class="danger-btn" disabled>
+              Chốt kết quả
+            </button>
+          </form>
+        </section>
+      </div>
+
+<!-- 05. QUAN LY SU KIEN TRAN DAU -->
+<section class="panel v3-events">
+  <div class="panel-heading">
+    <div>
+      <h2>Quản lý sự kiện trận đấu</h2>
+      <p>Xem, chỉnh sửa hoặc hủy sự kiện trước khi chốt kết quả.</p>
+    </div>
+    <span class="step-number" id="v3EventMatch">05</span>
+  </div>
+
+  <p class="inline-feedback" id="v3EventStatus" role="status">
+    Hãy chọn một trận đấu.
+  </p>
+
+  <div class="v3-event-columns">
+    <div class="v3-event-box">
+      <h3>Danh sách bàn thắng</h3>
+      <div id="v3GoalList">Chưa chọn trận.</div>
+    </div>
+
+    <div class="v3-event-box">
+      <h3>Danh sách thẻ phạt</h3>
+      <div id="v3CardList">Chưa chọn trận.</div>
+    </div>
+  </div>
+
+  <form id="v3EditGoal" class="admin-form v3-event-edit" hidden>
+    <h3>Chỉnh sửa bàn thắng <span id="v3GoalNumber"></span></h3>
+    <input type="hidden" name="matchId">
+    <input type="hidden" name="eventIndex">
+
+    <label>
+      Cầu thủ ghi bàn
+      <input type="text" name="playerName" maxlength="100" required>
+    </label>
+
+    <div class="form-grid">
+      <label>
+        Đội bóng
+        <select name="team" required>
+          <option value="1">Đội A</option>
+          <option value="2">Đội B</option>
+        </select>
+      </label>
+
+      <label>
+        Phút ghi bàn
+        <input type="number" name="minute"
+               min="1" max="180" step="1" required>
+      </label>
+    </div>
+
+    <div class="v3-event-buttons">
+      <button type="submit" class="primary-btn">Lưu chỉnh sửa</button>
+      <button type="button" class="v3-small-btn" id="v3CloseGoal">
+        Đóng
+      </button>
+    </div>
+  </form>
+
+  <form id="v3EditCard" class="admin-form v3-event-edit" hidden>
+    <h3>Chỉnh sửa thẻ phạt <span id="v3CardNumber"></span></h3>
+    <input type="hidden" name="matchId">
+    <input type="hidden" name="eventIndex">
+
+    <label>
+      Cầu thủ nhận thẻ
+      <input type="text" name="playerName" maxlength="100" required>
+    </label>
+
+    <div class="form-grid">
+      <label>
+        Đội bóng
+        <select name="team" required>
+          <option value="1">Đội A</option>
+          <option value="2">Đội B</option>
+        </select>
+      </label>
+
+      <label>
+        Loại thẻ
+        <select name="cardType" required>
+          <option value="1">Thẻ vàng</option>
+          <option value="2">Thẻ đỏ</option>
+        </select>
+      </label>
+    </div>
+
+    <label>
+      Phút nhận thẻ
+      <input type="number" name="minute"
+             min="1" max="180" step="1" required>
+    </label>
+
+    <div class="v3-event-buttons">
+      <button type="submit" class="primary-btn">Lưu chỉnh sửa</button>
+      <button type="button" class="v3-small-btn" id="v3CloseCard">
+        Đóng
+      </button>
+    </div>
+  </form>
+</section>
+
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <img src="images/logo-ctut.png" alt="" />
+          <span>CTUT Football Blockchain</span>
+        </div>
+        <span>© 2026 CLB Bóng đá CTUT</span>
+      </div>
+    </footer>
+  </body>
+</html>

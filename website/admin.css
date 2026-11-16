@@ -1,0 +1,653 @@
+/* ===================================
+   TRANG QUAN LY CTUT FOOTBALL
+=================================== */
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* HEADER */
+.site-header {
+  background: #102c49;
+  border-bottom: 1px solid #244564;
+}
+
+.brand-text strong {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.brand-text small {
+  color: #c8d7e6;
+}
+
+.site-nav a {
+  color: #e8f0f8;
+  font-weight: 600;
+}
+
+.site-nav a:hover {
+  background: #244564;
+  color: #ffffff;
+}
+
+.site-nav a.active {
+  background: #fdf0e7;
+  color: #bd4d0d;
+}
+
+/* MAIN */
+.admin-main {
+  flex: 1;
+  padding-top: 28px;
+  padding-bottom: 54px;
+}
+
+.admin-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.admin-title-row h1 {
+  margin: 0;
+  padding-left: 14px;
+  border-left: 4px solid #ed7824;
+  color: #14365a;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+/* CAC KHUNG CHUC NANG */
+.panel {
+  background: #ffffff;
+  border: 1px solid #e1e8f0;
+  border-radius: 18px;
+  padding: 23px;
+  box-shadow: 0 12px 32px rgba(19, 49, 80, 0.07);
+}
+
+.panel-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 21px;
+}
+
+.panel-heading h2 {
+  color: #14365a;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 5px;
+}
+
+.panel-heading p {
+  margin: 0;
+  color: #687d94;
+  font-size: 13px;
+}
+
+/* KET NOI VI */
+.status-chip {
+  color: #8b6521;
+  background: #fff4df;
+  padding: 7px 11px;
+  border-radius: 999px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.status-chip.connected {
+  color: #13774a;
+  background: #e3f6eb;
+}
+
+.wallet-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.wallet-details {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.wallet-details div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.wallet-details span {
+  color: #687d94;
+  font-size: 12px;
+}
+
+.wallet-details strong {
+  color: #14365a;
+  font-size: 13px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.inline-feedback {
+  font-size: 13px;
+  color: #586f88;
+  margin: 10px 0 0;
+}
+
+.inline-feedback:empty {
+  display: none;
+}
+
+/* LUOI CHUC NANG */
+.admin-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+
+.step-number {
+  border-radius: 9px;
+  background: #edf2f8;
+  color: #54708e;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 6px 9px;
+}
+
+/* FORM */
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.admin-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #2a4560;
+}
+
+.admin-form input {
+  width: 100%;
+  min-width: 0;
+  padding: 12px 13px;
+
+  background: #ffffff;
+  border: 1px solid #d6e1ed;
+  border-radius: 10px;
+
+  color: #14365a;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 14px;
+  outline: none;
+}
+
+.admin-form input:focus {
+  border-color: #ed7824;
+  box-shadow: 0 0 0 3px rgba(237, 120, 36, 0.12);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px;
+}
+
+/* THE PHAT */
+.cards-group {
+  background: #f7f9fc;
+  border: 1px solid #e6ebf2;
+  border-radius: 12px;
+  padding: 13px;
+}
+
+.cards-group > strong {
+  display: block;
+  margin-bottom: 10px;
+  color: #14365a;
+  font-size: 13px;
+}
+
+/* THONG BAO CHOT */
+.important-note {
+  margin: 0;
+  padding: 12px 13px;
+  border-radius: 10px;
+  background: #fff5ee;
+  color: #98602d;
+  font-size: 13px;
+}
+
+/* BUTTON */
+.primary-btn,
+.danger-btn {
+  padding: 12px 17px;
+  border: none;
+  border-radius: 11px;
+
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.primary-btn {
+  background: #ed7824;
+}
+
+.primary-btn:not(:disabled):hover {
+  background: #d56515;
+}
+
+.danger-btn {
+  background: #af4454;
+}
+
+.danger-btn:not(:disabled):hover {
+  background: #933344;
+}
+
+button:disabled {
+  opacity: 0.48;
+  cursor: not-allowed;
+}
+
+.admin-form button {
+  align-self: flex-start;
+}
+
+/* FOOTER */
+.site-footer {
+  background: #102c49;
+}
+
+/* DANH SACH TRAN DAU */
+.admin-matches {
+  grid-column: 1 / -1;
+  margin-bottom: 0;
+}
+
+.admin-match-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.admin-match-heading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #14365a;
+  margin: 0 0 5px;
+}
+
+.admin-match-heading p {
+  margin: 0;
+  color: #687d94;
+  font-size: 13px;
+}
+
+.match-count {
+  background: #edf3f8;
+  color: #14365a;
+  padding: 7px 13px;
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.admin-table-scroll {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid #e1e8f0;
+  border-radius: 12px;
+}
+
+.admin-match-table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.admin-match-table th {
+  background: #f3f6fa;
+  color: #516b85;
+  padding: 14px;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.admin-match-table td {
+  padding: 15px 14px;
+  border-top: 1px solid #e7edf3;
+  color: #14365a;
+  font-size: 14px;
+}
+
+.admin-match-table tbody tr:hover {
+  background: #f8fafc;
+}
+
+.admin-empty {
+  text-align: center;
+  color: #687d94 !important;
+  padding: 28px !important;
+}
+
+.match-status {
+  display: inline-block;
+  border-radius: 20px;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.match-status.done {
+  background: #e3f6ed;
+  color: #16834f;
+}
+
+.match-status.pending {
+  background: #fff2df;
+  color: #ac6c13;
+}
+
+.admin-select-btn {
+  border: 1px solid #ed7824;
+  background: #fff4ea;
+  color: #bd540d;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.admin-select-btn:hover {
+  background: #ffe8d4;
+}
+
+.selection-feedback {
+  color: #16834f;
+  font-size: 13px;
+  margin: 12px 0 0;
+}
+
+.selection-feedback:empty {
+  display: none;
+}
+
+/* KHOANG CACH DONG DEU CAC KHUNG */
+.wallet-panel {
+  margin-bottom: 20px;
+}
+
+.admin-grid > .panel {
+  min-width: 0;
+}
+
+/* CAN CHINH NUT KET NOI METAMASK */
+#connectWallet {
+  margin-left: auto;
+  flex-shrink: 0;
+  white-space: nowrap;
+  min-width: 178px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 850px) {
+  .admin-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-matches {
+    grid-column: 1;
+  }
+
+  .wallet-body {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #connectWallet {
+    margin-left: 0;
+    align-self: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .admin-title-row h1 {
+    font-size: 21px;
+  }
+
+  .panel {
+    padding: 17px;
+  }
+
+  .wallet-details {
+    flex-direction: column;
+    gap: 13px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .panel-heading {
+    flex-wrap: wrap;
+  }
+}
+
+/* ===================================
+   THE PHAT TRONG DANH SACH TRAN
+=================================== */
+
+.admin-cards-cell {
+  min-width: 175px;
+}
+
+.admin-card-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 5px 0;
+  white-space: nowrap;
+  font-size: 12px;
+  color: #102f50;
+}
+
+.admin-card-team {
+  font-weight: 600;
+  min-width: 38px;
+  color: #60738c;
+}
+
+.admin-card-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-weight: 600;
+}
+
+/* =====================================
+   CANH BAO TRAN DAU DA CHOT
+===================================== */
+
+.finalized-warning {
+  display: block;
+  margin-top: 14px;
+  padding: 13px 16px;
+
+  background: #fff2e8;
+  border: 1px solid #ffd2b5;
+  border-left: 4px solid #f97316;
+
+  border-radius: 9px;
+
+  color: #a34112;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+.admin-form select {
+  width: 100%;
+  min-width: 0;
+  padding: 12px 13px;
+  background: #ffffff;
+  border: 1px solid #d6e1ed;
+  border-radius: 10px;
+  color: #14365a;
+  font: 14px 'Segoe UI', Arial, sans-serif;
+  outline: none;
+}
+
+.admin-form select:focus {
+  border-color: #ed7824;
+  box-shadow: 0 0 0 3px rgba(237, 120, 36, 0.12);
+}
+
+/* =====================================
+   05. QUAN LY SU KIEN TRAN DAU
+===================================== */
+
+.v3-events {
+  margin-top: 20px;
+}
+
+.v3-event-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.v3-event-box {
+  min-width: 0;
+  padding: 16px;
+  background: #f8fafc;
+  border: 1px solid #dfe8f2;
+  border-radius: 12px;
+}
+
+.v3-event-box h3,
+.v3-event-edit h3 {
+  font-size: 16px;
+  color: #102f50;
+  margin: 0 0 14px;
+}
+
+.v3-record {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 10px 0;
+  padding: 12px;
+  border: 1px solid #dfe8f2;
+  border-radius: 10px;
+  background: white;
+}
+
+.v3-record-info {
+  min-width: 0;
+}
+
+.v3-record-info strong {
+  display: block;
+  font-size: 13px;
+  color: #102f50;
+  overflow-wrap: anywhere;
+}
+
+.v3-record-info p {
+  margin: 5px 0 0;
+  color: #677e97;
+  font-size: 12px;
+}
+
+.v3-record-actions,
+.v3-event-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.v3-small-btn,
+.v3-remove-btn {
+  padding: 9px 12px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.v3-small-btn {
+  color: #ba4c0b;
+  background: #fff4e9;
+  border: 1px solid #ffbf96;
+}
+
+.v3-remove-btn {
+  color: #a12e45;
+  background: #fff1f2;
+  border: 1px solid #f0b2bd;
+}
+
+.v3-small-btn:disabled,
+.v3-remove-btn:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+.v3-record.cancelled {
+  opacity: .65;
+}
+
+.v3-record.cancelled em {
+  display: block;
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+.v3-event-edit {
+  margin-top: 18px;
+  padding: 18px;
+  border: 1px solid #ffc39f;
+  border-radius: 12px;
+  background: #fffaf6;
+}
+
+.v3-event-edit[hidden] {
+  display: none !important;
+}
+
+.v3-event-box .v3-empty {
+  color: #74869a;
+  font-size: 13px;
+}
+
+@media (max-width: 850px) {
+  .v3-event-columns {
+    grid-template-columns: 1fr;
+  }
+}

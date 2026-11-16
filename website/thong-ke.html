@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thống kê | CTUT Football Blockchain</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="thong-ke.css" />
+
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.17.0/dist/ethers.umd.min.js" defer></script>
+  <script src="thong-ke.js" defer></script>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+
+      <a href="index.html" class="brand">
+        <img
+          src="images/logo-ctut.png"
+          alt="Logo CLB Bóng đá CTUT"
+          class="brand-logo"
+        />
+        <span class="brand-text">
+          <strong>CTUT Football Blockchain</strong>
+          <small>CLB Bóng đá CTUT</small>
+        </span>
+      </a>
+
+      <nav class="site-nav" aria-label="Điều hướng chính">
+        <a href="index.html#ket-qua">Kết quả</a>
+        <a href="thong-ke.html" class="active" aria-current="page">
+          Thống kê
+        </a>
+        <a href="admin.html">Quản lý</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="container main-content stats-page">
+
+    <!-- TIEU DE -->
+    <div class="stats-heading">
+      <h1>THỐNG KÊ</h1>
+
+      <div class="stats-actions">
+        <span class="demo-tag" id="statsSource">
+          Đang tải dữ liệu...
+        </span>
+
+        <button
+          type="button"
+          id="refreshStats"
+          class="stats-refresh">
+          Làm mới dữ liệu
+        </button>
+      </div>
+    </div>
+
+    <p
+      class="stats-feedback"
+      id="statsFeedback"
+      role="status"
+      aria-live="polite"></p>
+
+    <!-- 6 O THONG KE TONG QUAN -->
+    <section class="stats-summary" aria-label="Thống kê tổng quan">
+
+      <article class="stats-summary-card">
+        <span class="stats-symbol orange">⚽</span>
+        <span class="stats-label">Tổng trận đấu</span>
+        <strong id="totalGames">…</strong>
+      </article>
+
+      <article class="stats-summary-card">
+        <span class="stats-symbol green">✓</span>
+        <span class="stats-label">Đã chốt kết quả</span>
+        <strong id="finishedGames">…</strong>
+      </article>
+
+      <article class="stats-summary-card">
+        <span class="stats-symbol blue">◷</span>
+        <span class="stats-label">Chưa chốt</span>
+        <strong id="openGames">…</strong>
+      </article>
+
+      <article class="stats-summary-card">
+        <span class="stats-symbol orange">🥅</span>
+        <span class="stats-label">Tổng bàn thắng</span>
+        <strong id="totalGoals">…</strong>
+      </article>
+
+      <article class="stats-summary-card">
+        <span class="stats-symbol yellow">▮</span>
+        <span class="stats-label">Tổng thẻ vàng</span>
+        <strong id="totalYellow">…</strong>
+      </article>
+
+      <article class="stats-summary-card">
+        <span class="stats-symbol red">▮</span>
+        <span class="stats-label">Tổng thẻ đỏ</span>
+        <strong id="totalRed">…</strong>
+      </article>
+
+    </section>
+
+    <!-- THONG KE THEO DOI BONG -->
+    <section class="stats-panel" aria-labelledby="teamTableTitle">
+
+      <div class="stats-table-heading">
+        <h2 id="teamTableTitle">THỐNG KÊ THEO ĐỘI BÓNG</h2>
+        <span id="teamCount" class="team-count">… đội</span>
+      </div>
+
+      <div class="stats-table-scroll">
+        <table class="stats-table">
+
+          <thead>
+            <tr>
+              <th>Đội bóng</th>
+              <th>Số trận</th>
+              <th>Bàn thắng</th>
+              <th>Bàn thua</th>
+              <th>Thẻ vàng</th>
+              <th>Thẻ đỏ</th>
+            </tr>
+          </thead>
+
+          <tbody id="teamRows">
+            <tr>
+              <td colspan="6">
+                Đang đọc dữ liệu từ Blockchain...
+              </td>
+            </tr>
+          </tbody>
+
+        </table>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="images/logo-ctut.png" alt="" aria-hidden="true" />
+        <span>CTUT Football Blockchain</span>
+      </div>
+      <span>© 2026 CLB Bóng đá CTUT</span>
+    </div>
+  </footer>
+
+</body>
+</html>
